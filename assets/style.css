@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
 /* custom scroll bar */
 ::-webkit-scrollbar {
     width: 10px;
@@ -58,6 +59,7 @@
   font-size: 1.125rem;
   font-weight: 500;
   margin-left: 0.8em;
+  margin-right: 0.8em;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -122,6 +124,16 @@
   margin-bottom: 0;
 }
 
+#prof-desc{
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+#prof-tagline{
+  font-size: 1.2rem;
+}
+
 img {
   vertical-align: middle;
   max-width: 100%;
@@ -130,9 +142,9 @@ img {
 
 #exp-title {
   font-size: 3rem;
-  background: #ff0000;
-  background: -webkit-linear-gradient(to right, #cc0000, #ff0000);
-  background: linear-gradient(to right,  #cc0000, #ff0000);
+  background: #1b1b1b;
+  /* background: -webkit-linear-gradient(to right, #cc0000, #ff0000);
+  background: linear-gradient(to right,  #cc0000, #ff0000); */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -157,10 +169,6 @@ img {
   font-size: 1.5rem;
   color: #ff0000;
   font-weight: 600;
-}
-
-.margin-bottom-medium {
-  margin-bottom: 2em;
 }
 
 .paragraph-large {
@@ -203,8 +211,8 @@ img {
   grid-template-rows: auto;
   grid-template-columns: 1fr 180px 1fr;
   grid-auto-columns: 1fr;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   display: grid;
   position: relative;
 }
@@ -294,6 +302,23 @@ img {
   inset: auto 0% 0%;
 }
 
+.card{
+  transform: translateX(80px);
+  opacity: 0;
+  transition: 150ms;
+  border: none;
+  background:none;
+}
+
+.card-container{
+  overflow: hidden;
+}
+
+.card.show{
+  transform: translateX(0);
+  opacity: 1;
+}
+
 
 @media (max-width: 868px) {
   body.disabledScroll{
@@ -326,7 +351,6 @@ img {
     left: 0;
     height: 100vh;
     width: 100%;
-    background: #1b1b1b;
     display: block;
     padding: 40px 0;
     text-align: center;
@@ -338,6 +362,8 @@ img {
   }
   .navbar .menu-list.active{
     clip-path: circle(75%);
+    background: #1b1b1b;
+
   }
   .navbar .menu-list li{
     margin-top: 2.8em;
@@ -345,14 +371,15 @@ img {
   .navbar .menu-list li a{
     font-size: 1.3rem;
   }
-  .navbar .logo{
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 50px;
-  }
   .navbar .logo img{
     height: 40px;
   }
+  /* .navbar .logo{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+  } */
+
 }
 
 @media (max-width: 500px){
@@ -390,11 +417,15 @@ img {
     font-size: 1.4rem;
   }
 
+  #prof-desc{
+    font-size: 1.4rem;
+  }
+
   .typed-cursor{
     font-size: 1.4rem;
   }
 
-  .desc{
+  #prof-tagline{
     font-size: 1rem;
   }
 }
@@ -435,7 +466,7 @@ img {
   }
 
   .timeline_date-text {
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
     font-size: 2rem;
   }
 
@@ -461,5 +492,161 @@ img {
   }
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
+/*=============== CARD ===============*/
+.proj__container {
+  display: grid;
+  place-items: center;
+  padding-block: 5rem;
+}
 
+.card__container {
+  display: grid;
+  row-gap: 3.5rem;
+  column-gap: 3.5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__img {
+  width: 400px;
+  border-radius: 1.5rem;
+}
+
+.card__data {
+  width: 350px;
+  background-color: #ffffff;
+  padding: 1rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 0.2s 1s;
+}
+
+.card__description {
+  display: block;
+  font-size: 0.8rem;
+  margin: 0.5em 0;
+}
+
+.card__title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #1b1b1b;
+  margin-bottom: 0;
+}
+
+.card__button {
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: #cc0000;
+  color: #fff;
+  border-style: none;
+  padding: 1% 5%;
+  border-radius: 20px;
+  margin-top: 3%;
+}
+
+.card__button:hover {
+  background-color: #c54444;
+}
+
+/* Naming animations in hover */
+.card__article:hover .card__data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.card__article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card__article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data {
+  animation: remove-data 1s forwards;
+}
+
+/* Card animation */
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(.5rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 770px) {
+  .proj__container {
+    padding-inline: 1rem;
+  }
+
+  .card__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .card__data {
+    width: 350px;
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card__data {
+    width: 250px;
+    bottom: -11rem;
+  }
+
+  .card__container {
+    row-gap: 4.5rem;
+  }
+}

@@ -26,3 +26,34 @@ var typed = new Typed(".auto-type", {
     backSpeed : 25,
     loop : true
 })
+
+const cards = document.querySelectorAll(".card")
+
+const observer = new IntersectionObserver (entries => {
+    entries.forEach(entry => {
+        entry.target.classList.toggle("show", entry.isIntersecting)
+        //To disbale the outro of the cards
+        // if (entry.isIntersecting){
+        //     observer.unobserve(entry.target)
+        // }
+    })
+}, {
+    threshold: 0.5
+})
+
+cards.forEach(card => {
+    observer.observe(card)
+})
+
+function readMore() {
+    var moreText = document.getElementById("more");
+    var btnText = document.getElementById("myBtn");
+  
+    if (moreText.style.display !== "none") {
+      btnText.innerHTML = "Read more"; 
+      moreText.style.display = "none";
+    } else {
+      btnText.innerHTML = "Read less"; 
+      moreText.style.display = "inline";
+    }
+  }
