@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
@@ -22,19 +23,27 @@
   <nav class="navbar">
     <div class="content">
       <div class="logo"><a href="#"><img src="assets/img/logo.png"></a></div>
-      <ul class="menu-list">
-        <div class="icon cancel-btn">
-          <i class="bi bi-x"></i>
-        </div>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
       <div class="icon menu-btn">
-        <i class="bi bi-list"></i>
+        <svg class="ham ham6" viewBox="0 0 100 100" width="50" onclick="this.classList.toggle('active')">
+          <path
+                class="line top"
+                d="m 30,33 h 40 c 13.100415,0 14.380204,31.80258 6.899646,33.421777 -24.612039,5.327373 9.016154,-52.337577 -12.75751,-30.563913 l -28.284272,28.284272" />
+          <path
+                class="line middle"
+                d="m 70,50 c 0,0 -32.213436,0 -40,0 -7.786564,0 -6.428571,-4.640244 -6.428571,-8.571429 0,-5.895471 6.073743,-11.783399 12.286435,-5.570707 6.212692,6.212692 28.284272,28.284272 28.284272,28.284272" />
+          <path
+                class="line bottom"
+                d="m 69.575405,67.073826 h -40 c -13.100415,0 -14.380204,-31.80258 -6.899646,-33.421777 24.612039,-5.327373 -9.016154,52.337577 12.75751,30.563913 l 28.284272,-28.284272" />
+        </svg>
       </div>
+      <ul class="menu-list">
+        <li class="list_item"><a href="#">Home</a></li>
+        <li class="list_item"><a href="#">About</a></li>
+        <li class="list_item"><a href="#">Services</a></li>
+        <li class="list_item"><a href="#">Features</a></li>
+        <li class="list_item"><a href="#">Contact</a></li>
+      </ul>
+      
     </div>
   </nav>
 
@@ -62,8 +71,10 @@
           <div class="padding-vertical-xlarge">
             <div class="card-container timeline-main_heading-wrapper">
               <div class="card">
-                <h2 id="exp-title"><b>My Experiences</b></h2>
+                <h2 class="tab-title black-title" style="padding-bottom: 0 !important;"><b>My Experiences</b></h2>
               </div>
+
+              
               <!-- <p class="paragraph-large">
                 The electric vehicle (EV) revolution began with small, incremental
                 steps. <br />This timeline tracks key moments in the development
@@ -92,7 +103,7 @@
                 <div class="timeline_circle"></div>
               </div>
               <div class="card-container timeline_right">
-                <div class="card exp-title">
+                <div class="card">
                   <h2 class="pos-title"><b>Intern</b></h2>
                   <h4 class="company-name">CLOUDSWYFT GLOBAL SYSTEMS, LTD.</h4>
                 </div>
@@ -124,7 +135,7 @@
                 <div class="timeline_circle"></div>
               </div>
               <div class="card-container timeline_right">
-                <div class="card exp-title">
+                <div class="card">
                   <h2 class="pos-title"><b>IT Developer</b></h2>
                   <h4 class="company-name">CLOUDSWYFT GLOBAL SYSTEMS, LTD.</h4>
                 </div>
@@ -156,7 +167,7 @@
                 <div class="timeline_circle"></div>
               </div>
               <div class="card-container timeline_right">
-                <div class="card exp-title">
+                <div class="card">
                   <h2 class="pos-title"><b>Lecturer I</b></h2>
                   <h4 class="company-name">BATANGAS STATE UNIVERSITY</h4>
                 </div>
@@ -188,7 +199,7 @@
                 <div class="timeline_circle"></div>
               </div>
               <div class="card-container timeline_right">
-                <div class="card exp-title">
+                <div class="card">
                   <h2 class="pos-title"><b>Jr. Programmer</b></h2>
                   <h4 class="company-name">LYCEUM OF THE PHILIPPINES UNIVERSITY- BATANGAS</h4>
                 </div>
@@ -223,73 +234,83 @@
   </div>
 
 
-  <div class="proj__container" style="background-color: #1b1b1b;">
+  <div class="proj__container">
+    <div class="card-container">
+      <h2 class="card tab-title white-title"><b>My Projects</b></h2>
+    </div>
     <div class="card__container">
       <article class="card__article">
-         <img src="assets/img/landscape-2.png" alt="image" class="card__img">
+         <img src="assets/img/proj1.jpg" alt="image" class="card__img">
 
-         <div class="card__data">
+         <div class="card__data" onmouseleave="readLess(this)" onmouseenter="readMouseOver(this)">
             <h2 class="card__title">BEE DROPPY</h2>
-            <!-- <span class="card__description">(Pycharm, PyGame, Python)</span>
-            <ul>
-              <li>
-                Developed a game application like the flappy bird
-              </li>
-            </ul> -->
+            <div class="more">
+              <span class="card__description">(Pycharm, PyGame, Python)</span>
+              <ul>
+                <li>
+                  A 2D arcade-style mobile game where the player controls a bee that must navigate through a series of woods without touching them. 
+                </li>
+              </ul>
+            </div>
+            <button class="card__button" onclick="readMore(this)" id="myBtn">Read More</button>
          </div>
       </article>
 
       <article class="card__article">
-         <img src="assets/img/landscape-1.png" alt="image" class="card__img">
+         <img src="assets/img/proj2.jpg" alt="image" class="card__img">
 
-         <div class="card__data">
+         <div class="card__data" onmouseleave="readLess(this)" onmouseenter="readMouseOver(this)">
             <h2 class="card__title">MILKTEA MANAGEMENT SYSTEM</h2>
-            <!-- <span class="card__description">(Eclipse, Javaswing, Java)</span>
-            <ul>
-              <li>
-                Developed a milktea management system application with basic funstions
-              </li>
-            </ul> -->
+            <div class="more">
+              <span class="card__description">(Eclipse, Javaswing, Java)</span>
+              <ul>
+                <li>
+                  A MilkTea Management System with user authentication, order placement and tracking, and secure account management features, including password and security question updates.
+                </li>
+              </ul>
+            </div>
+            <button class="card__button" onclick="readMore(this)" id="myBtn">Read More</button>
          </div>
       </article>
 
       <article class="card__article">
-        <img src="assets/img/landscape-1.png" alt="image" class="card__img">
+        <img src="assets/img/proj3.jpg" alt="image" class="card__img">
 
-        <div class="card__data">
+        <div class="card__data" onmouseleave="readLess(this)" onmouseenter="readMouseOver(this)">
            <h2 class="card__title" style="font-size: 1rem;">POISONOUS AND NON-POISONOUS CRABS RECOGNITION USING DEEP LEARNING AND MAPPING USING GEOGRAPHIC INFORMATION SYSTEM</h2>
-           <div id="more" style="display: none;">
+           <div class="more">
             <span class="card__description">(Flutter, Firebase, Google Colab, Label Me, Postman)</span>
            <ul>
              <li>
-               Developed a mobile application for crab detection and location mapping using GPS, and trained a suitable CNN model for classifying poisonous and non-poisonous crabs.
+              Developed a mobile application for crab detection and crab location mapping using the GPS of mobile phones.
+             </li>
+             <li>
+              Trained and identify the most suitable CNN pre-trained model to be used in the classification of poisonous and non-poisonous crabs.
              </li>
            </ul>
            </div>
-           <button class="card__button" onclick="readMore()" id="myBtn">Read More</button>
+           <button class="card__button" onclick="readMore(this)" id="myBtn">Read More</button>
         </div>
      </article>
 
       <article class="card__article">
-         <img src="assets/img/landscape-2.png" alt="image" class="card__img">
+         <img src="assets/img/proj4.jpg" alt="image" class="card__img">
 
-         <div class="card__data">
+         <div class="card__data" onmouseleave="readLess(this)" onmouseenter="readMouseOver(this)">
             <h2 class="card__title">SMART VOICE ASSISSTANT</h2>
-            <!-- <span class="card__description">(Pycharm, PyGame, Python)</span>
-            <ul>
-              <li>
-                Developed a smart voice assistant with features like introducing itself, searching Wikipedia, opening popular platforms like YouTube and Gmail, telling the time, revealing its creator, predicting weather, and delivering news updates
-              </li>
-            </ul> -->
+            <div class="more">
+              <span class="card__description">(Pycharm, PyGame, Python)</span>
+              <ul>
+                <li>
+                  Developed a smart voice assistant with features like introducing itself, searching Wikipedia, opening popular platforms like YouTube and Gmail, telling the time, revealing its creator, predicting weather, and delivering news updates
+                </li>
+              </ul>
+            </div>
+            <button class="card__button" onclick="readMore(this)" id="myBtn">Read More</button>
          </div>
       </article>
-   </div>
-
+    </div>
   </div>
-
-  </div>
-
-  
 
 </body>
 <script src="assets/index.js"></script>

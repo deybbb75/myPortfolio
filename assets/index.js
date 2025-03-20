@@ -2,18 +2,32 @@ const body = document.querySelector("body");
 const navbar = document.querySelector(".navbar");
 const menu = document.querySelector(".menu-list");
 const menuBtn = document.querySelector(".menu-btn");
-const cancelBtn = document.querySelector(".cancel-btn");
+const iconBtn = document.querySelector(".ham");
+
 menuBtn.onclick = ()=>{
-    menu.classList.add("active");
-    menuBtn.classList.add("hide");
-    cancelBtn.classList.add("show");
-    body.classList.add("disabledScroll");
-}
-cancelBtn.onclick = ()=>{
-    menu.classList.remove("active");
-    menuBtn.classList.remove("hide");
-    cancelBtn.classList.remove("show");
-    body.classList.remove("disabledScroll");
+    if(iconBtn.classList.contains('active')){
+        menu.classList.add("active");
+        body.classList.add("disabledScroll");
+
+        var count = $('.list_item').length;
+        $('.menu-list').slideDown( (count*.6)*100 );
+        $('.list_item').each(function(i){
+            var thisLI = $(this).get(0);
+            timeOut = 100*i;
+            setTimeout(function(){
+                thisLI.classList.add("active");
+            },100*i);
+        });
+    }else{
+        menu.classList.remove("active");
+        body.classList.remove("disabledScroll");
+
+        $('.list_item').each(function(i){
+            var thisLI = $(this).get(0);
+            thisLI.classList.remove("active");
+        });
+    }
+    
 }
 
 window.onscroll = ()=>{
@@ -45,15 +59,37 @@ cards.forEach(card => {
     observer.observe(card)
 })
 
-function readMore() {
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
-  
-    if (moreText.style.display !== "none") {
-      btnText.innerHTML = "Read more"; 
-      moreText.style.display = "none";
+let clickedReadMore = false;
+
+function readMore(button) {
+    const card = button.parentElement;
+    const moreText = card.querySelector('.more');
+    const btnText = card.querySelector('.card__button');
+
+    clickedReadMore = true;
+
+    btnText.style.display = "none"; 
+    moreText.classList.add("show");
+}
+
+function readLess(card) {
+    const moreText = card.querySelector('.more');
+    const btnText = card.querySelector('.card__button');
+
+    clickedReadMore = false;
+
+    moreText.classList.remove("show");
+    btnText.style.display = "block";
+}
+
+function readMouseOver(card) {
+    const moreText = card.querySelector('.more');
+    const btnText = card.querySelector('.card__button');
+
+    if (!clickedReadMore) {
+        btnText.style.display = "block";
     } else {
-      btnText.innerHTML = "Read less"; 
-      moreText.style.display = "inline";
+        moreText.classList.add("show");
     }
-  }
+}
+
