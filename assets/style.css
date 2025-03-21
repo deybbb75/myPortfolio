@@ -1,10 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+
+/*======================================================== GLOBAL CSS ================================================================*/
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+}
+
+.tab-title {
+  font-size: 3rem;
+  padding-bottom: 0.8em;
+  /* background: -webkit-linear-gradient(to right, #cc0000, #ff0000);
+  background: linear-gradient(to right,  #cc0000, #ff0000); */
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+.white-title{
+  color: #ffffff;
+}
+
+.black-title{
+  color: #1b1b1b;
+}
+
+.card{
+  transform: translateX(80px);
+  opacity: 0;
+  transition: 150ms;
+  border: none;
+  background:none;
+}
+
+.card-container{
+  overflow: hidden;
+}
+
+.card.show{
+  transform: translateX(0);
+  opacity: 1;
 }
 
 /* custom scroll bar */
@@ -20,6 +56,9 @@
 ::selection{
   background: rgb(0,123,255,0.3);
 }
+
+/*======================================================== NAV BAR & BANNER =============================================================*/
+
 .content{
   max-width: 1250px;
   margin: auto;
@@ -80,8 +119,47 @@
   background-attachment: fixed;
 }
 
-.desc{
-  font-size: 1.3rem;
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+.line {
+  fill:none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke:#ffffff;
+  stroke-width:5.5;
+  stroke-linecap:round;
+}
+
+.ham6 .top {
+  stroke-dasharray: 40 172;
+}
+.ham6 .middle {
+  stroke-dasharray: 40 111;
+}
+.ham6 .bottom {
+  stroke-dasharray: 40 172;
+}
+.ham6.active .top {
+  stroke-dashoffset: -132px;
+}
+.ham6.active .middle {
+  stroke-dashoffset: -71px;
+}
+.ham6.active .bottom {
+  stroke-dashoffset: -132px;
 }
 
 .icon{
@@ -89,14 +167,6 @@
   font-size: 1.25rem;
   cursor: pointer;
   display: none;
-}
-.icon.cancel-btn{
-  position: absolute;
-  right: 30px;
-  top: 20px;
-}
-.navbar.sticky .icon.cancel-btn{
-  top: 10px;
 }
 
 .banner .container-fluid{
@@ -140,34 +210,13 @@
   font-size: 1.2rem;
 }
 
-
-.tab-title {
-  font-size: 3rem;
-  padding-bottom: 0.8em;
-  /* background: -webkit-linear-gradient(to right, #cc0000, #ff0000);
-  background: linear-gradient(to right,  #cc0000, #ff0000); */
-  /* -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-}
-
-.white-title{
-  color: #ffffff;
-}
-
-.black-title{
-  color: #1b1b1b;
-}
-
-.inline-block {
-  max-width: 100%;
-  display: inline-block;
-}
+/*======================================================= MY EXPERIENCE PART =============================================================*/
 
 .page-wrapper {
   position: relative;
 }
 
-.container {
+.timeline-container {
   width: 90vw;
   max-width: 1360px;
   margin-left: auto;
@@ -190,7 +239,7 @@
 }
 
 .padding-vertical-xlarge {
-  padding-top: 50px;
+  padding-top: 6em;
   padding-bottom: 30px;
 }
 
@@ -211,6 +260,7 @@
   margin-right: auto;
   display: flex;
   position: relative;
+  padding-bottom: 6em;
 }
 
 .timeline_item {
@@ -273,7 +323,7 @@
   z-index: -2;
   background-color: #414141;
   width: 5px;
-  height: 100%;
+  height: 105%;
   position: absolute;
 }
 
@@ -311,29 +361,115 @@
   inset: auto 0% 0%;
 }
 
-.card{
-  transform: translateX(80px);
-  opacity: 0;
-  transition: 150ms;
-  border: none;
-  background:none;
+/*====================================================== SOFTWARE SKILLS PART ===========================================================*/
+
+.skill-container{
+  padding: 6em 3em;
+  place-items: center;
+  background: url("img/background4.jpg") no-repeat;
+  background-size: cover;
 }
 
-.card-container{
-  overflow: hidden;
+.card-skill-container {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 2rem;
+	margin: auto;
+	color: #e3e3e3;
+	width: 100%;
+	align-items: center;
 }
 
-.card.show{
-  transform: translateX(0);
-  opacity: 1;
+.card-skill {
+	position: relative;
+	overflow: hidden;
+	display: grid;
+	grid-template-areas: "card";
+	place-items: center;
+	aspect-ratio: 19/20;
+	border: 1px solid #27272a;
+	border-radius: 2em;
+  background-color: #1b1b1b;
+	isolation: isolate;
+	transition: border-color 200ms cubic-bezier(0.5, 1, 0.89, 1);
+	user-select: none;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(
+		circle at bottom left,
+		transparent 55%,#1b1b1b);
+		pointer-events: none;
+		box-shadow: #1b1b1b -0.5cqi 0.5cqi 2.5cqi inset;
+		transition: opacity 900ms cubic-bezier(0.5, 1, 0.89, 1);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		margin: auto;
+		aspect-ratio: 1;
+		background: radial-gradient(circle, #09090b, transparent 65%);
+		opacity: 0;
+		transition: opacity 800ms cubic-bezier(0.5, 1, 0.89, 1);
+	}
+
+	> * {
+		grid-area: card;
+	}
+
+	svg {
+		position: relative;
+		z-index: 1;
+		width: 30%;
+		height: auto;
+		color:  #52525b;
+		transition: 300ms cubic-bezier(0.5, 1, 0.89, 1);
+		transition-property: color, scale;
+	}
+
+	button {
+		opacity: 0;
+	}
+
+	&:focus-within {
+		outline: 5px auto Highlight;
+		outline: 5px auto -webkit-focus-ring-color;
+	}
+
+	&:where(:hover, :focus-within) {
+		border-color: var(--active-color, #e3e3e3);
+		transition: border-color 800ms cubic-bezier(0.45, 0, 0.55, 1);
+	}
+
+	&:where(:hover, :focus-within) svg {
+		color: var(--active-color,#e3e3e3);
+		scale: 1.1;
+		transition: 300ms cubic-bezier(0.45, 0, 0.55, 1);
+	}
+
+	&:where(:hover, :focus-within)::before {
+		opacity: 0;
+	}
+
+	&:where(:hover, :focus-within)::after {
+		opacity: 1;
+	}
 }
+
+/*======================================================== MY PROJECTS PART ==============================================================*/
 
 /*=============== CARD ===============*/
 .proj__container {
   display: grid;
   place-items: center;
-  padding: 3rem;
-  background-color: #1b1b1b;
+  padding-block: 6rem;
+  /* background-color: #1b1b1b; */
+  background: url("img/background4.jpg") no-repeat;
+  background-size: cover;
 }
 
 .card__container {
@@ -349,7 +485,7 @@
 }
 
 .card__img {
-  width: 500px;
+  width: 600px;
   border-radius: 1.5rem;
   display: block;
   max-width: 100%;
@@ -395,7 +531,10 @@
   padding: 1% 5%;
   border-radius: 8px;
   margin-top: 3%;
-  width: 100%;
+  width: 27%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card__button:hover {
@@ -459,48 +598,6 @@
   }
 }
 
-.ham {
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 400ms;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.hamRotate.active {
-  transform: rotate(45deg);
-}
-.hamRotate180.active {
-  transform: rotate(180deg);
-}
-.line {
-  fill:none;
-  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  stroke:#ffffff;
-  stroke-width:5.5;
-  stroke-linecap:round;
-}
-
-.ham6 .top {
-  stroke-dasharray: 40 172;
-}
-.ham6 .middle {
-  stroke-dasharray: 40 111;
-}
-.ham6 .bottom {
-  stroke-dasharray: 40 172;
-}
-.ham6.active .top {
-  stroke-dashoffset: -132px;
-}
-.ham6.active .middle {
-  stroke-dashoffset: -71px;
-}
-.ham6.active .bottom {
-  stroke-dashoffset: -132px;
-}
-
 .more {
   opacity: 0;
   max-height: 0;
@@ -513,6 +610,11 @@
   max-height: 500px; /* Adjust based on content height */
 }
 
+.cert-container{
+  background: url("img/background3.jpg") no-repeat;
+  background-size: cover;
+}
+
 
 
 
@@ -520,113 +622,8 @@
 
 
 /*======================================================== BREAKPOINTS ================================================================*/
-/* For small devices */
-@media screen and (max-width: 770px) {
-  .proj__container {
-    padding-inline: 1em;
-    padding-bottom: 5em;
-  }
-
-  .card__container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .card__data {
-    padding: 1rem;
-    bottom: -10.5rem;
-  }
-
-  .card__container {
-    row-gap: 4.5rem;
-  }
-
-  .paragraph-large {
-    font-size: 1.125rem;
-  }
-
-  .padding-vertical-xlarge {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
-
-  .timeline_item {
-    grid-template-columns: 64px 1fr;
-    width: 100%;
-  }
-
-  .timeline_left {
-    text-align: left;
-    grid-area: 1 / 2 / 2 / 3;
-  }
-
-  .timeline_centre {
-    justify-content: flex-start;
-    grid-area: 1 / 1 / 3 / 2;
-  }
-
-  .timeline_right {
-    grid-area: span 1 / span 1 / span 1 / span 1;
-  }
-
-  .timeline_date-text {
-    margin-bottom: 1em;
-    font-size: 2rem;
-  }
-
-  .timeline_text {
-    font-size: 1.1rem;
-  }
-
-  .timeline_progress {
-    left: 6px;
-  }
-
-  .tab-title {
-    font-size: 2.5rem;
-  }
-
-  .company-name{
-    font-size: 1.2rem;
-  }
-
-  .padding-vertical-xlarge {
-    padding-top: 40px;
-    padding-bottom: 10px;
-  }
-
-  /* STAGGER LIST ----- */
-  .menu-list {
-    display: none;
-    list-style: none;
-    padding: 0;
-  }
-  .list_item {
-    margin-left: 400px;
-    opacity: 0;
-    -webkit-transition: all 200ms ease-in-out;
-    transition: all 200ms ease-in-out;
-  }
-
-  .list_item.active {
-    opacity: 1;
-    margin-left: 0px;
-  }
-
-  .list_item a {
-    color: #fff;
-    display: block;
-    padding: 5px 10px;
-    text-decoration: none;
-  }
-}
-
-@media (max-width: 330px){
-  #profile{
-    padding-top: 20%;
-  }
-}
-
-@media (max-width: 868px) {
+/* For Navigation Bar */
+@media screen and (max-width: 868px) {
   body.disabledScroll{
     overflow: hidden;
   }
@@ -638,12 +635,6 @@
     line-height: 50px;
     border-radius: 50%;
     z-index: 9;
-  }
-  .icon.cancel-btn{
-    display: none;
-  }
-  .icon.cancel-btn.show{
-    display: block;
   }
   .icon.hide{
     display: none;
@@ -697,7 +688,115 @@
   }
 }
 
-@media (max-width: 500px){
+
+/* For medium devices */
+@media screen and (max-width: 770px) {
+  .proj__container {
+    padding-inline: 1em;
+    padding-bottom: 5em;
+  }
+
+  .card__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .card__data {
+    padding: 1rem;
+    bottom: -10.5rem;
+  }
+
+  .card__container {
+    row-gap: 4.5rem;
+  }
+
+  .paragraph-large {
+    font-size: 1.125rem;
+  }
+
+  .timeline_item {
+    grid-template-columns: 64px 1fr;
+    width: 100%;
+  }
+
+  .timeline_left {
+    text-align: left;
+    grid-area: 1 / 2 / 2 / 3;
+  }
+
+  .timeline_centre {
+    justify-content: flex-start;
+    grid-area: 1 / 1 / 3 / 2;
+  }
+
+  .timeline_right {
+    grid-area: span 1 / span 1 / span 1 / span 1;
+  }
+
+  .timeline_date-text {
+    margin-bottom: 1em;
+    font-size: 2rem;
+  }
+
+  .timeline_text {
+    font-size: 1.1rem;
+  }
+
+  .timeline_progress {
+    left: 6px;
+  }
+
+  .tab-title {
+    font-size: 2.5rem;
+  }
+
+  .company-name{
+    font-size: 1.2rem;
+  }
+
+  .padding-vertical-xlarge {
+    padding-top: 6em;
+    padding-bottom: 2em;
+  }
+
+  /* STAGGER LIST ----- */
+  .menu-list {
+    display: none;
+    list-style: none;
+    padding: 0;
+  }
+  .list_item {
+    margin-left: 400px;
+    opacity: 0;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+  }
+
+  .list_item.active {
+    opacity: 1;
+    margin-left: 0px;
+  }
+
+  .list_item a {
+    color: #fff;
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+  }
+
+  .card-skill-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* For small devices */
+@media screen and (max-width: 480px){
+  #profile{
+    padding-top: 20%;
+  }
+  .card__button {
+    width: 100%;
+  }
+
   .banner{
     height: 100vh;
     background: url("img/background2.jpg") no-repeat;
@@ -743,4 +842,12 @@
   #prof-tagline{
     font-size: 1rem;
   }
+
+  .card-skill-container {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
+
+
+
+
