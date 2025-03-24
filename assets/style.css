@@ -370,7 +370,7 @@
   background-size: cover;
 }
 
-.card-skill-container {
+/* .card-skill-container {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	gap: 2rem;
@@ -378,7 +378,7 @@
 	color: #e3e3e3;
 	width: 100%;
 	align-items: center;
-}
+} */
 
 .card-skill {
 	position: relative;
@@ -424,7 +424,7 @@
 	svg {
 		position: relative;
 		z-index: 1;
-		width: 30%;
+		width: 50%;
 		height: auto;
 		color:  #52525b;
 		transition: 300ms cubic-bezier(0.5, 1, 0.89, 1);
@@ -460,15 +460,65 @@
 	}
 }
 
+.card-slider{
+  --width: 200px;
+  --height: 200px;
+  --quantity: 10;
+  width: 100%;
+  height: var(--height);
+  overflow: hidden;
+  mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 10% 90%,
+      transparent
+  );
+}
+.card-slider .card-list{
+  display: flex;
+  width: 100%;
+  min-width: calc(var(--width) * var(--quantity));
+  position: relative;
+}
+.card-slider .card-list .card-skill{
+  width: var(--width);
+  height: var(--height);
+  position: absolute;
+  left: 100%;
+  animation: autoRun 10s linear infinite;
+  transition: filter 0.5s;
+  animation-delay: calc( (20s / var(--quantity)) * (var(--position) - 1) - 20s)!important;
+}
+@keyframes autoRun{
+  from{
+      left: 100%;
+  }to{
+      left: calc(var(--width) * -1);
+  }
+}
+.card-slider:hover .card-skill{
+  animation-play-state: paused!important;
+}
+.card-slider[reverse="true"] .card-skill{
+  animation: reversePlay 20s linear infinite;
+}
+@keyframes reversePlay{
+  from{
+      left: calc(var(--width) * -1);
+  }to{
+      left: 100%;
+  }
+}
+
 /*======================================================== MY PROJECTS PART ==============================================================*/
 
 /*=============== CARD ===============*/
 .proj__container {
   display: grid;
   place-items: center;
-  padding-block: 6rem;
+  padding:6em 3em;
   /* background-color: #1b1b1b; */
-  background: url("img/background4.jpg") no-repeat;
+  background: url("img/background3.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -485,8 +535,7 @@
 }
 
 .card__img {
-  width: 600px;
-  border-radius: 1.5rem;
+  width: 100%;
   display: block;
   max-width: 100%;
   height: auto;
@@ -615,6 +664,128 @@
   background-size: cover;
 }
 
+.card__article {
+	--bg-pos-y--start: 0;
+	--bg-pos-y--end: 0;
+	--bg-pos-y: var(--bg-pos-y--start);
+	--delay: 0;
+	--duration: 6s;
+
+	--shadow-blur: 24px;
+	--shadow-color: oklch(25% 0.0075 70);
+
+	border: 6px solid var(--border-color, transparent);
+	border-radius: 6px;
+	box-shadow: 0 0 var(--shadow-blur) 0 var(--shadow-color);
+
+	transition-property: border, 	box-shadow, 	filter, 	outline-offset, 	opacity, 	rotate,		scale,	z-index;
+	transition-duration: 0.15s, 	0.15s, 				0.6s, 		0.6s, 						0.3s, 		0.3s,			0.3s,		0.15s;
+
+	filter: grayscale(100%) sepia(5%);
+	mix-blend-mode: multiply;
+	opacity: 0.69;
+
+	/* 		backface-visibility: hidden;
+	transform: translateZ(0) perspective(1px); */
+	/* 	transform-origin: center center; */
+
+	scale: 0.85;
+	rotate: var(--rotation, -4deg);
+	/* 	will-change: box-shadow, filter, rotate, scale, z-index; */
+
+	outline: 9px solid #fff;
+	outline-offset: 9px;
+
+	height: 100%;
+
+	width: 100%;
+
+	position: relative;
+
+	animation-name: bg-scroll;
+	animation-delay: var(--delay);
+	animation-duration: var(--duration);
+	animation-fill-mode: forwards;
+
+	&:focus-within,
+	&:hover {
+		--shadow-blur: 200px;
+		--shadow-color: #cc0000;
+		--border-color: var(--shadow-color);
+
+		background-color: white;
+		mix-blend-mode: initial;
+		filter: none;		
+		opacity: 1;	
+		
+		outline-offset: calc(9px / 2);
+		
+		scale: 1;
+		rotate: 0deg;
+		
+		transition-property: border, 		box-shadow, 		filter, 	outline-offset, 	opacity,	rotate,		scale, 		z-index;
+		transition-duration: 0.15s, 		0.15s, 					0.3s, 		0.3s, 						0.3s, 		0.3s, 		0.3s, 		0.15s;
+	}
+
+	&:focus-within {
+		z-index: 5;
+	}
+	
+	&:hover	{
+		z-index: 0;
+		&:focus { --shadow-color: oklch(var(--mint)); }
+	}
+
+	&:nth-of-type(2) {
+		--bg-pos-y--end: calc(auto * -1.025);
+		/*       --delay: .25s; */
+		--rotation: 3deg;
+	}
+
+	&:nth-of-type(3) {
+		--bg-pos-y--end: calc(auto * -2.25);
+		/*       --delay: .5s; */
+		--duration: 6.5s;
+		--rotation: -1deg;
+	}
+
+	&:nth-of-type(4) {
+		--bg-pos-y--end: calc(auto * -3.75);
+		/*       --delay: .75s; */
+		--duration: 6.75s;
+		--rotation: -5deg;
+	}
+
+	&:nth-of-type(5) {
+		--bg-pos-y--end: calc(auto * -4.82);
+		/*       --delay: 1s; */
+		--duration: 7s;
+		--rotation: -2deg;
+	}
+
+	&:nth-of-type(6) {
+		--bg-pos-y--end: calc(auto * -5.85);
+		/*       --delay: 1.25s; */
+		--duration: 7.25s;
+		--rotation: 2deg;
+	}
+
+	&:nth-of-type(7) {
+		--bg-pos-y--end: calc(auto * -7.21);
+		/*       --delay: 1.5s; */
+		--duration: 7.5s;
+		--rotation: 4deg;
+	}
+}
+
+/* preview-scroll */
+@keyframes bg-scroll {
+	to {
+		background-position-y: var(--bg-pos-y--end);
+	}
+}
+
+
 
 
 
@@ -692,8 +863,7 @@
 /* For medium devices */
 @media screen and (max-width: 770px) {
   .proj__container {
-    padding-inline: 1em;
-    padding-bottom: 5em;
+    padding: 6em 3em;
   }
 
   .card__container {
@@ -793,6 +963,11 @@
   #profile{
     padding-top: 20%;
   }
+
+  .img-fluid{
+    max-width: 80%;
+  }
+
   .card__button {
     width: 100%;
   }
@@ -846,6 +1021,31 @@
   .card-skill-container {
 		grid-template-columns: repeat(1, 1fr);
 	}
+
+  .proj__container {
+    padding: 6em 2em;
+  }
+
+  .card__article {
+    border: 5px solid var(--border-color, transparent);
+    outline: 5px solid #fff; 
+	  outline-offset: 5px;
+  }
+
+  .card-slider{
+    --width: 150px;
+    --height: 150px;
+  }
+
+  .skill-container{
+    padding: 6em 1em;
+  }
+}
+
+@media screen and (max-width: 320px){
+  .img-fluid{
+    margin-top: 2em;
+  }
 }
 
 

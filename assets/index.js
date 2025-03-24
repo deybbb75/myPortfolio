@@ -30,6 +30,16 @@ menuBtn.onclick = ()=>{
     
 }
 
+$('.list_item').each(function(i){
+	var thisLI = $(this).get(0);
+	thisLI.onclick = ()=>{
+		menu.classList.remove("active");
+        body.classList.remove("disabledScroll");
+		iconBtn.classList.remove("active");
+	}
+});
+
+
 window.onscroll = ()=>{
     this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
 }
