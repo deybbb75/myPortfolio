@@ -860,8 +860,7 @@
   text-align: center;
 }
 
-.tranding-slider-control .slider-arrow i {
-  font-size: 2rem;
+.tranding-slider-control .slider-arrow svg {
   color: #ffffff;
 }
 
