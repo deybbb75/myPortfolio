@@ -16,6 +16,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="assets/style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -43,7 +45,7 @@
         <li class="list_item"><a href="#software-skills">Skills</a></li>
         <li class="list_item"><a href="#projects">Projects</a></li>
         <li class="list_item"><a href="#certificates">Certificates</a></li>
-        <li class="list_item"><a href="#">Contact</a></li>
+        <li class="list_item"><a href="#contact">Contact</a></li>
       </ul>
       
     </div>
@@ -387,126 +389,11 @@
   <div class="cert-container">
     <div class="swiper tranding-slider">
       <div class="swiper-wrapper">
-        <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert1.jpg" alt="Tranding">
-          </div>
-          <!-- <div class="tranding-slide-content">
-            <h1 class="food-price">$20</h1>
-            <div class="tranding-slide-content-bottom">
-              <h2 class="food-name">
-                Special Pizza
-              </h2>
-              <h3 class="food-rating">
-                <span>4.5</span>
-              </h3>
-            </div>
-          </div> -->
-        </div>
-        <!-- Slide-end -->
-        <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert2.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-        <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert3.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-        <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-            <div class="tranding-slide-img">
-              <img src="assets/img/certs/cert4.jpg" alt="Tranding">
-            </div>
-        </div>
-        <!-- Slide-end -->
-        <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert5.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-         <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert6.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-         <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert7.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-         <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert8.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-         <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert9.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-         <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert10.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-         <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert11.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-         <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert12.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-         <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert13.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-         <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert14.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
-         <!-- Slide-start -->
-        <div class="swiper-slide tranding-slide">
-          <div class="tranding-slide-img">
-            <img src="assets/img/certs/cert15.jpg" alt="Tranding">
-          </div>
-        </div>
-        <!-- Slide-end -->
+        
       </div>
 
       <div class="tranding-slider-control">
-        <div class="swiper-button-prev slider-arrow" onclick="prevPage()">
+        <div class="swiper-button-prev slider-arrow">
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
             <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1"/>
           </svg>
@@ -514,7 +401,7 @@
         <div class="swiper-pagination">
           <span id="currentPage">1</span><span style="margin: 0 10%;">of</span><span id="totalPage">5</span>
         </div>
-        <div class="swiper-button-next slider-arrow" onclick="nextPage()">
+        <div class="swiper-button-next slider-arrow">
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
             <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1"/>
           </svg>
@@ -524,6 +411,100 @@
     </div>
   </div>
 </section>
+
+<div class="contact__container" id="contact">
+  <div class="card-container">
+    <h2 class="card tab-title black-title"><b>Contact Me</b></h2>
+  </div>
+  <div class="card-contact-container">
+    <div class="screen">
+      <div class="screen-header">
+        <div class="screen-header-left">
+          <div class="screen-header-button close"></div>
+          <div class="screen-header-button maximize"></div>
+          <div class="screen-header-button minimize"></div>
+        </div>
+        <div class="screen-header-right">
+          <div class="screen-header-ellipsis"></div>
+          <div class="screen-header-ellipsis"></div>
+          <div class="screen-header-ellipsis"></div>
+        </div>
+      </div>
+      <div class="screen-body">
+        <div class="screen-body-item left">
+           <div class="card-profile-container">
+              <article class="card__contact">
+                 <div class="card__profile">
+                    <img src="assets/img/profile.jpg" alt="image" class="card__profile-img">
+                 </div>
+                 
+                 <div class="card__tooltip">
+                    <div class="card__content">
+                       <header class="card__header">
+                          <span>Social</span>
+                          
+                          <div class="card__social"> 
+                             <a href="https://www.linkedin.com/in/dave-ellomar-jamilla-dev/" target="_blank">
+                              <i class="bi bi-linkedin"></i>
+                             </a>
+        
+                             <a href="https://github.com/deybbb75" target="_blank">
+                              <i class="bi bi-github"></i>
+                             </a>
+                             <a  href="https://x.com/deybbbjmll?t=TQtNKesqA_MrqVw_M84ovQ" target="_blank">
+                              <i class="bi bi-twitter-x"></i>
+                             </a>
+                             <a  href="https://www.instagram.com/_deybbb_?igsh=YzVycDI0ODR6ODFq" target="_blank">
+                              <i class="bi bi-instagram"></i>
+                             </a>
+                             <a  href="https://www.facebook.com/share/1HDW4Q3xH3/" target="_blank">
+                              <i class="bi bi-facebook"></i>
+                             </a>
+                          </div>
+                       </header>
+        
+                       <!-- <div class="card__data__profile">
+                          <div class="card__image">
+                             <div class="card__mask">
+                                <img src="assets/img/profile.jpg" alt="image" class="card__img">
+                             </div>
+                             
+                             <span class="card__status"></span>
+                          </div>
+        
+                          <h2 class="card__name">Dave Ellomar Jamilla</h2>
+                          <h3 class="card__profession">Web Developer | Computer Engineer | Programmer</h3>
+                       </div> -->
+                    </div>
+                 </div>
+              </article>
+           </div>
+        </div>
+        <div class="screen-body-item">
+          <div class="app-form">
+            <form id="contact-form">
+              <div class="app-form-group">
+                <input class="app-form-control" placeholder="NAME" id="user_name" autocomplete="off">
+              </div>
+              <div class="app-form-group">
+                <input class="app-form-control" placeholder="EMAIL" id="user_email" autocomplete="off">
+              </div>
+              <div class="app-form-group">
+                <input class="app-form-control" placeholder="SUBJECT" id="title" autocomplete="off">
+              </div>
+              <div class="app-form-group message">
+                <input class="app-form-control" placeholder="MESSAGE" id="message" autocomplete="off">
+              </div>
+              <div class="app-form-group buttons">
+                <button class="app-form-button">SEND</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>

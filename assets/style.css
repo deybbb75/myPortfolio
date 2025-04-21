@@ -89,7 +89,7 @@
   transition: all 0.3s ease;
 }
 .menu-list li a:hover{
-  color: #cc0000;
+  color: #ff0000;
 }
 
 .list_item {
@@ -547,6 +547,7 @@
   display: block;
   font-size: 0.8rem;
   margin: 0.5em 0;
+  text-align: center;
 }
 
 .card__title {
@@ -889,7 +890,324 @@
   color: #ffffff;
 }
 
+.tranding-slider-control .swiper-pagination {
+  margin-inline: 10px;
+}
 
+/* Style for the progress bar container */
+.swiper-pagination-progressbar {
+  background-color: rgba(236, 236, 236, 0.604);  /* Change the background color of the progress bar */
+  border-radius: 40px;  /* Optional: rounded corners for the progress bar */
+  height: 8px !important;
+}
+
+/* Style for the filling part of the progress bar */
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background-color: #cc0000;  /* Change this to the color you want for the progress bar */
+  border-radius: 40px;
+}
+
+
+
+/*================================================================= MY CONTACT ===================================================================*/
+.contact__container {
+  display: grid;
+  place-items: center;
+  padding:6em 0em;
+  /* background-color: #1b1b1b; */
+  background: url("img/background3.jpg") no-repeat;
+  background-size: cover;
+}
+
+/*=============== CARD ===============*/
+.card-profile-container {
+  height: 100%;
+  place-items: center;
+  align-content: center;
+}
+
+.card-contact-container{
+  margin: auto;
+  padding: 10px;
+  width: 700px;
+}
+
+.card__contact {
+  position: relative;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+}
+
+.card__profile, 
+.card__mask {
+  width: 100px;
+  height: 100px;
+  background-color: hsl(230, 24%, 88%);
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.card__profile {
+  width: 200px;
+  height: 200px;
+}
+ 
+.card__mask {
+  width: 100px;
+  height: 100px;
+  border-style: solid;
+}
+ 
+.card__mask img {
+  width: 100px;
+}
+
+.card__profile img{
+  width: 200px;
+}
+
+.card__profile {
+  border: 4px solid hsl(0, 0%, 100%);
+  transition: opacity .4s, transform .4s;
+  z-index: 1;
+}
+
+.card__tooltip {
+  position: absolute;
+  bottom: -2rem;
+  padding-bottom: 5rem;
+  transition: opacity .4s, bottom .4s cubic-bezier(.6, -.5, .3, 1.5);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.card__content {
+  position: relative;
+  width: 300px;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 16px 32px hsla(230, 50%, 20%, .1);
+  padding: 2rem 1.5rem;
+  border-radius: 1.5rem;
+}
+
+.card__content::after {
+  content: "";
+  width: 32px;
+  height: 32px;
+  background-color: hsl(0, 0%, 100%);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -.75rem;
+  margin-inline: auto;
+  border-radius: .25rem;
+  rotate: 45deg;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: 1px solid hsl(230, 4%, 92%);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem; */
+}
+
+.card__header span {
+  color: hsl(230, 24%, 12%);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.card__social {
+  display: flex;
+  column-gap: .75rem;
+}
+
+.card__social a {
+  font-size: 1.5rem;
+  color: hsl(230, 24%, 12%);
+  text-decoration: none;
+}
+
+.card__image {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin: 0 auto 1rem;
+}
+
+.card__status {
+  width: 18px;
+  height: 18px;
+  background-color: hsl(150, 100%, 38%);
+  position: absolute;
+  top: 0rem;
+  right: .75rem;
+  border-radius: 50%;
+  border: 2px solid hsl(0, 0%, 100%);
+}
+
+.card__data__profile {
+  text-align: center;
+}
+
+.card__name {
+  font-size: 1.25rem;
+  color: hsl(230, 24%, 12%);
+  font-weight: 600;
+  margin-bottom: .25rem;
+}
+
+.card__profession {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Scale profile image */
+.card__contact:hover .card__profile {
+  transform: scale(.8);
+  opacity: .7;
+}
+
+/* Show tooltip card */
+.card__contact:hover .card__tooltip {
+  opacity: 1;
+  pointer-events: initial;
+  bottom: 8rem;
+}
+
+.screen {
+  position: relative;
+  background: #3e3e3e;
+  border-radius: 15px;
+}
+
+.screen:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+  z-index: -1;
+}
+
+.screen-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: #4d4d4f;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.screen-header-left {
+  margin-right: auto;
+}
+
+.screen-header-button {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 3px;
+  border-radius: 8px;
+  background: white;
+}
+
+.screen-header-button.close {
+  background: #ed1c6f;
+}
+
+.screen-header-button.maximize {
+  background: #e8e925;
+}
+
+.screen-header-button.minimize {
+  background: #74c54f;
+}
+
+.screen-header-right {
+  display: flex;
+}
+
+.screen-header-ellipsis {
+  width: 3px;
+  height: 3px;
+  margin-left: 2px;
+  border-radius: 8px;
+  background: #999;
+}
+
+.screen-body {
+  display: flex;
+  height: 400px;
+}
+
+.screen-body-item {
+  flex: 1;
+  padding: 50px;
+  align-content: center;
+}
+
+.screen-body-item.left {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.app-form-group {
+  margin-bottom: 30px;
+}
+
+.app-form-group.buttons {
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.app-form-control {
+  width: 100%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #666;
+  color: #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.app-form-control::placeholder {
+  color: #666;
+}
+
+.app-form-control:focus {
+  border-bottom-color: #ddd;
+}
+
+.app-form-button {
+  background: #cc0000;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  padding: 0.5em 1.5em;
+  border-radius: 20px;
+}
+
+.app-form-button:hover {
+  background: #ff5151;
+}
 
 
 
@@ -1161,6 +1479,39 @@
   }
   #certificates {
     padding: 6em 0.5em;
+  }
+
+  .card-contact-container{
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .screen-body {
+    flex-direction: column;
+    height: 100%;
+    padding: 40px;
+  }
+
+  .screen-body-item.left {
+    margin-bottom: 30px;
+  }
+
+  .screen-body-item {
+    padding: 0;
+  }
+
+  .card__profile {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .card__profile img{
+    width: 150px;
+  }
+  /* Show tooltip card */
+  .card__contact:hover .card__tooltip {
+    bottom: 5rem;
   }
 }
 

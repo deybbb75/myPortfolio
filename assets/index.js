@@ -378,6 +378,19 @@ class PixelCanvas extends HTMLElement {
   
 PixelCanvas.register();
 
+// Load All the Certificates
+const sliderContainer = document.querySelector(".swiper-wrapper");
+for (let i = 1; i <= 15; i++) {
+	const slide = document.createElement('div');
+    slide.className = 'swiper-slide tranding-slide';
+    slide.innerHTML = `
+      <div class="tranding-slide-img">
+        <img src="assets/img/certs/cert${i}.jpg" alt="Tranding">
+      </div>
+    `;
+    sliderContainer.appendChild(slide);
+};
+
 var TrandingSlider = new Swiper('.tranding-slider', {
 	effect: 'coverflow',
 	grabCursor: true,
@@ -390,38 +403,63 @@ var TrandingSlider = new Swiper('.tranding-slider', {
 		depth: 100,
 		modifier: 2.5,
 	},
-	// pagination: {
-	//   el: '.swiper-pagination',
-	//   clickable: true,
-	// },
+	pagination: {
+	  el: '.swiper-pagination',
+	  type: 'progressbar',
+	},
 	navigation: {
 		nextEl: '.swiper-button-next',
 		prevEl: '.swiper-button-prev',
 	}
 });
 
-let totalPageNumber = document.querySelectorAll(".swiper-slide");
-let currentPage = document.getElementById("currentPage");
-let totalPage = document.getElementById("totalPage");
-let realTotalPage = totalPageNumber.length / 3
+emailjs.init("MvvcWmyoAtu7ix17t");
 
-totalPage.innerHTML = realTotalPage
+// Get the current date and time
+const now = new Date();
 
-function nextPage(){
-	if(currentPage.innerHTML < realTotalPage){
-		currentPage.innerHTML++
-	}else{
-		currentPage.innerHTML = 1
-	}
-}
+// Format the date and time as DD-MM-YYYY hh:mm AM/PM
+// Format the date and time directly using `toLocaleString`
+const formattedDateTime = now.toLocaleString('en-US', {
+	month: '2-digit',
+	day: '2-digit',
+	year: 'numeric',
+	hour: '2-digit',
+	minute: '2-digit',
+	hour12: true
+  }).replace(',', ''); 
 
-function prevPage(){
-	console.log(currentPage.innerHTML + 1)
-	if(currentPage.innerHTML > 1){
-		currentPage.innerHTML--
-	}else{
-		currentPage.innerHTML = realTotalPage
-	}
-}
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+	event.preventDefault();
+	
+	var params = {
+		name: document.getElementById("user_name").value,
+        email: document.getElementById("user_email").value,
+        title: document.getElementById("title").value,
+        message: document.getElementById("message").value,
+		time: formattedDateTime,
+	};
 
+	emailjs.send("service_x6sqfvk", "template_07cpwhm", params)
+	.then(function(response) {
+		console.log("Success:", response);
+		Swal.fire({
+			title: "Email Sent!",
+			text: "Email sent successfully! Thank you for your message.",
+			icon: "success"
+		}).then((result) => {
+            if (result.isConfirmed) {
+              // Reload the page when "OK" is clicked
+              location.reload();
+            }
+          });
+	}, function(error) {
+		console.error("Error:", error);
+		Swal.fire({
+			title: "Email not Sent!",
+			text: "Oops! Something went wrong. Please try again later.",
+			icon: "error"
+		});
+	});
+});
 
