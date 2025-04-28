@@ -4,6 +4,16 @@ const menu = document.querySelector(".menu-list");
 const menuBtn = document.querySelector(".menu-btn");
 const iconBtn = document.querySelector(".ham");
 
+window.addEventListener('load', function() {
+	setTimeout(function() {
+	  const preloader = document.getElementById('preloader');
+	  preloader.style.opacity = '0'; // fade out
+	  setTimeout(function() {
+		preloader.style.display = 'none'; // hide after fade out
+	  }, 500); // match fade time (0.5s)
+	}, 1000); // wait minimum 2 seconds
+  });
+
 menuBtn.onclick = ()=>{
     if(iconBtn.classList.contains('active')){
         menu.classList.add("active");
