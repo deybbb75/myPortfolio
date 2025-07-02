@@ -1,0 +1,167 @@
+/*======================================================== MY CERTIFICATES ==============================================================*/
+
+.cert-container {
+  max-width: 124rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+#certificates {
+  padding: 6em 3em;
+  background: url("../img/background4.jpg") no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+#certificates .tranding-slider {
+  height: fit-content;
+  position: relative;
+}
+
+.tranding-slide {
+  width: 37rem;
+  height: auto;
+  position: relative;
+}
+
+.tranding-slide .tranding-slide-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+  border: 5px solid;
+}
+
+.tranding-slide .tranding-slide-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.tranding-slide-content .food-price {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: #ffffff;
+}
+
+.tranding-slide-content .tranding-slide-content-bottom {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  color: #ffffff;
+}
+
+.food-rating {
+  padding-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  display: none;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  position: unset;
+  margin-top: 0;
+}
+
+.tranding-slider-control {
+  /* position: relative; */
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+
+.tranding-slider-control .slider-arrow {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  /* left: 42%; */
+  /* transform: translateX(-42%); */
+  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+  align-content: center;
+  text-align: center;
+}
+
+.tranding-slider-control .slider-arrow svg {
+  color: #ffffff;
+}
+
+.tranding-slider-control .slider-arrow::after {
+  content: '';
+}
+
+.tranding-slider-control .swiper-pagination {
+  width: 15rem;
+  bottom: 1rem;
+  text-align: center;
+  position: unset;
+}
+
+.tranding-slider-control .swiper-pagination .swiper-pagination-bullet {
+  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+}
+
+.tranding-slider-control .swiper-pagination .swiper-pagination-bullet-active {
+  background: #ffffff;
+}
+
+.tranding-slider-control span{
+  font-size: 2rem;
+  font-weight: 1000;
+  color: #ffffff;
+}
+
+.tranding-slider-control .swiper-pagination {
+  margin-inline: 10px;
+}
+
+/* Style for the progress bar container */
+.swiper-pagination-progressbar {
+  background-color: rgba(236, 236, 236, 0.604);  /* Change the background color of the progress bar */
+  border-radius: 40px;  /* Optional: rounded corners for the progress bar */
+  height: 8px !important;
+}
+
+/* Style for the filling part of the progress bar */
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background-color: #cc0000;  /* Change this to the color you want for the progress bar */
+  border-radius: 40px;
+}
+
+
+
+/*======================================================== BREAKPOINTS ================================================================*/
+
+/* For small devices */
+@media screen and (max-width: 480px){
+  .small-title{
+    font-size: 2rem;
+  }
+
+  .tranding-slide {
+    width: 20rem !important;
+  }
+  .tranding-slide .tranding-slide-img img {
+    width: 20rem !important;
+  }
+  #certificates {
+    padding: 6em 0.5em;
+  }
+}
+
+@media screen and (max-width: 320px){
+  .tranding-slide {
+    width: 15rem !important;
+  }
+  .tranding-slide .tranding-slide-img img {
+    width: 15rem !important;
+  }
+}

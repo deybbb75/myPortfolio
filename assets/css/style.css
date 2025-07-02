@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+/*======================================================== GLOBAL CSS ================================================================*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.tab-title {
+  font-size: 3rem;
+  padding-bottom: 0.8em;
+  /* background: -webkit-linear-gradient(to right, #cc0000, #ff0000);
+  background: linear-gradient(to right,  #cc0000, #ff0000); */
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+.white-title{
+  color: #ffffff;
+  text-align: center;
+}
+
+.black-title{
+  color: #1b1b1b;
+  text-align: center;
+}
+
+.card{
+  transform: translateX(80px);
+  opacity: 0;
+  transition: 150ms;
+  border: none;
+  background:none;
+}
+
+.card-container{
+  overflow: hidden;
+}
+
+.card.show{
+  transform: translateX(0);
+  opacity: 1;
+}
+/*======================================================== PRELOADER =============================================================*/
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000; /* or transparent if your gif handles background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease; /* smooth fading */
+}
+
+#preloader img {
+  width: 150px; /* adjust size if needed */
+  height: auto;
+}
+
+/*======================================================== NAV BAR & BANNER =============================================================*/
+
+.content{
+  max-width: 1250px;
+  margin: auto;
+  padding: 0px 30px;
+}
+.navbar{
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  padding: 25px 0;
+  transition: all 0.3s ease;
+  display: block;
+}
+.navbar.sticky{
+  padding: 10px 0;
+  background: #1b1b1b;
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+}
+.navbar .content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo img{
+  height: 50px;
+}
+.navbar .menu-list{
+  display: inline-flex;
+  margin-bottom: 0;
+}
+.menu-list li{
+  list-style: none;
+}
+.menu-list li a{
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-left: 0.8em;
+  margin-right: 0.8em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.menu-list li a:hover{
+  color: #ff0000;
+}
+
+.list_item {
+  margin-left: 0px;
+  opacity: 1;
+}
+
+.banner{
+  height: 100vh;
+  background: url("../img/background.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+.line {
+  fill:none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke:#ffffff;
+  stroke-width:5.5;
+  stroke-linecap:round;
+}
+
+.ham6 .top {
+  stroke-dasharray: 40 172;
+}
+.ham6 .middle {
+  stroke-dasharray: 40 111;
+}
+.ham6 .bottom {
+  stroke-dasharray: 40 172;
+}
+.ham6.active .top {
+  stroke-dashoffset: -132px;
+}
+.ham6.active .middle {
+  stroke-dashoffset: -71px;
+}
+.ham6.active .bottom {
+  stroke-dashoffset: -132px;
+}
+
+.icon{
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: none;
+}
+
+.banner .container-fluid{
+  padding: 10%;
+  height: 100%;
+  margin: 0;
+}
+
+.banner .container-fluid .row{
+  height: 100%;
+}
+
+.typed-cursor{
+  font-size: 2rem; 
+  color: #ff0000;
+}
+
+#profile{
+  display: none;
+}
+
+#greet{
+  font-size: 3.5rem;
+  margin-bottom: 0;
+}
+
+.auto-type{
+  font-size: 2rem;
+  color: #ff0000;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+#prof-desc{
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+#prof-tagline{
+  font-size: 1.2rem;
+}
+
+
+/*======================================================== BREAKPOINTS ================================================================*/
+/* For Navigation Bar */
+@media screen and (max-width: 868px) {
+  body.disabledScroll{
+    overflow: hidden;
+  }
+  .icon{
+    display: block;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    z-index: 9;
+  }
+  .icon.hide{
+    display: none;
+  }
+  .navbar{
+    padding: 15px 0;
+  }
+  .navbar .menu-list{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: block;
+    padding: 40px 0;
+    text-align: center;
+    clip-path: circle(25px at calc(100% - 55px) calc(0% + 40px));
+    transition: all 0.3s ease;
+  }
+  .navbar.sticky .menu-list{
+    clip-path: circle(25px at calc(100% - 55px) calc(0% + 35px));
+  }
+  .navbar .menu-list.active{
+    clip-path: circle(75%);
+    background: #1b1b1b;
+
+  }
+
+  .navbar .menu-list li:first-child{
+    margin-top: 1em;
+  }
+
+  .navbar .menu-list li{
+    padding-block: 1.4em;
+  }
+
+  .navbar .menu-list li a{
+    font-size: 1.3rem;
+  }
+
+  .menu-list li a:hover{
+    color: #ffffff;
+  }
+
+  .navbar .menu-list li:hover{
+    background-color: #414141;
+  }
+
+  .navbar .logo img{
+    height: 40px;
+  }
+}
+
+
+/* For medium devices */
+@media screen and (max-width: 770px) {
+  .tab-title {
+    font-size: 2.5rem;
+  }
+
+  /* STAGGER LIST ----- */
+  .menu-list {
+    display: none;
+    list-style: none;
+    padding: 0;
+  }
+  .list_item {
+    margin-left: 400px;
+    opacity: 0;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+  }
+
+  .list_item.active {
+    opacity: 1;
+    margin-left: 0px;
+  }
+
+  .list_item a {
+    color: #fff;
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+  }
+}
+
+/* For small devices */
+@media screen and (max-width: 480px){
+  #profile{
+    padding-top: 20%;
+  }
+
+  .img-fluid{
+    max-width: 80%;
+  }
+
+  .banner{
+    height: 100vh;
+    background: url("../img/background2.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  #profile{
+    display: block;
+    padding-top: 10%;
+    padding-bottom: 8%;
+  }
+
+  .banner .container-fluid .row{
+    display: block;
+  }
+
+  .banner .container-fluid .row .col .h1{
+    font-size: 2rem !important;
+  }
+
+  .banner .container-fluid .row{
+    display: block;
+  }
+
+  #greet{
+    font-size: 2rem;
+  }
+  
+  .auto-type{
+    font-size: 1.4rem;
+  }
+
+  #prof-desc{
+    font-size: 1.4rem;
+  }
+
+  .typed-cursor{
+    font-size: 1.4rem;
+  }
+
+  #prof-tagline{
+    font-size: 1rem;
+  }
+
+  .small-title{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 320px){
+  .img-fluid{
+    margin-top: 2em;
+  }
+}
